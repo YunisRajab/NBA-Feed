@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="icons/nba_logo.png">
+    <title>NBA Feed</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("user_3lAMuFzSoLFk2RFOXxG8F");
+      })();
+    </script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+          <div class="col-4" align="center"><button class="btn btn-primary p-3 mt-2" id="btnPrevious">Previous Day</button></div>
+          <div class="col-4" align="center"><button class="btn btn-primary p-3 mt-2" id="btnToday">Today</button></div>
+          <div class="col-4" align="center"><button class="btn btn-primary p-3 mt-2" id="btnNext">Next Day</button></div>
+      </div>
+    </div>
+      
+
+    <div class="container mt-5">
+      <div class="row mb-2 justify-content-center">
+        <div class="match col-5 m-2">
+          <div class="row flex-grow-1 align-content-center">
+            <div class="matchSection vTeam col-4 text-center">
+              <a href=""><img class="img-responsive center-block"></a>
+              <p>name</p>
+              <p>record</p>
+            </div>
+            <div class="matchSection mid col-4 text-center">
+                <button class="btn btn-primary p-1" id="reminder" align="center">Remind me</button>
+                <p style="font-size:24px"></p>
+                <p style="font-size:24px"></p>
+                <p></p>
+            </div>
+            <div class="matchSection hTeam col-4 text-center">
+              <a href=""><img class="img-responsive center-block"></a>
+              <p>name</p>
+              <p>record</p>
+            </div>        
+          </div>
+        </div>
+        <textarea class="col-10 mt-2" id="console" rows="10" style="background-color: black; color: white;" readonly></textarea>       
+      </div>
+    </div>
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
