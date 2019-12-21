@@ -3,7 +3,6 @@
 // cors https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141#43881141
 // make own server eventually refering to above link
 
-addText("http://nba-streams.xyz/stream/los-angeles-lakers-live-stream/");
 var dict = {
     ATL: "Atlanta Hawks",
     BKN: "Brooklyn Nets",
