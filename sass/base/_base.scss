@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*Makes elements inherit box-sizing*/
+}
+
+html {
+  font-size: 62.5%; //1 rem = 10px; 10/16 = 62.5%
+  background-color: black;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box; /*includes padding in box sizes instead of size + padding*/
+
+  margin: 0px;
+  //   background: linear-gradient(
+  //     to right,
+  //     $color-primary 0%,
+  //     $color-secondary 100%
+  //   );
+  background-color: $color-tertiary-dark;
+  /* background: linear-gradient(to right, #ffffff 0%, 5%, #17408b 45%, #ffffff 50%, #c9082a 55%, 95%, #ffffff 100%); */
+  color: white;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

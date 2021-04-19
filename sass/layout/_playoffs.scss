@@ -1,0 +1,104 @@
+.bracket {
+    display: flex;
+    border: white solid 2px;
+    width: 80%;
+    margin: auto;
+
+    &__quarter,
+    &__semi,
+    &__conf__final,
+    &__finals {
+        display: inline-block;
+        width: 12%;
+        margin: auto;
+        padding: 0;
+    }
+
+    .matchup {
+        border-radius: 1rem;
+        margin: 5%;
+        // height: 20%;
+        width: 100%;
+        padding: 1%;
+        margin: 20% 0;
+
+        &__row {
+            background-color: black;
+            border-radius: 1rem;
+            margin: 10% 0;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+
+            img {
+                height: 36px;
+                // vertical-align: middle;
+                margin-bottom: .25em;
+
+                @include respond(tab-land) {
+                    height: 24px;
+                }
+                @include respond(tab-port) {
+                    height: 16px;
+                }
+            }
+
+            span {
+                @include respond(tab-land) {
+                    font-size: 1.5rem;
+                }
+                @include respond(tab-port) {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    &__semi {
+
+        .matchup {
+
+            &:first-of-type {
+                margin: 0 0 150% 0;
+            }
+            &:last-of-type {
+                margin: 150% 0 0 0;
+            }
+            
+            &__row:first-of-type {
+                margin: 0 0 20% 0;
+            }
+            &__row:last-of-type {
+                margin: 20% 0 0 0;
+            }
+        }
+    }
+
+    &__conf__final {
+
+        .matchup {
+            &__row:first-of-type {
+                margin: 0 0 40% 0;
+            }
+            &__row:last-of-type {
+                margin: 40% 0 0 0;
+            }
+        }
+    }
+
+    &__finals {
+
+        .matchup {
+            &__row:first-of-type {
+                margin: 0 0 10% 0;
+            }
+            &__row:last-of-type {
+                margin: 10% 0 0 0;
+            }
+        }
+    }
+}

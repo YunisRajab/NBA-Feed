@@ -1,0 +1,43 @@
+.conference {
+  position: absolute;
+  top: 0;
+  width: 32px;
+  border-radius: 1rem;
+  background-color: #2a0e22;
+
+  @include respond(phone) {
+    width: 24px;
+  }
+
+  img,
+  .team img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    @include respond(phone) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &-west {
+    left: -5%;
+
+    @include respond(phone) {
+      bottom: 100%;
+      top: initial;
+      left: -10%;
+    }
+  }
+
+  &-east {
+    right: -5%;
+
+    @include respond(phone) {
+      bottom: 100%;
+      top: initial;
+      right: -10%;
+    }
+  }
+}

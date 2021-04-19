@@ -1,0 +1,15 @@
+select, input {
+    color: white;
+    background-color: $color-tertiary;
+    border-radius: 10px;
+    border: 1px solid white;
+    position: relative;
+    height: 4rem;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+        -webkit-appearance: none;
+        display: none;
+    }
+}
+

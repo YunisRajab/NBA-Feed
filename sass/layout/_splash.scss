@@ -1,0 +1,54 @@
+
+.panel {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba($color-primary-alt, .1) 0%, rgba($color-primary-alt, .25) 20%, rgba($color-tertiary, .5) 50%, rgba($color-secondary-alt, .25) 80%, rgba($color-secondary-alt, .1) 100%);
+  perspective: 100rem;
+  
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 30vh;
+    height: 50vh;
+    backface-visibility: hidden;
+  }
+
+  &--front {
+    transform: translate(-50%, -50%) rotateY(0deg); // translateX(50%)
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+  }
+
+  &--back {
+    transform: translate(-50%, -50%) rotateY(180deg); // translateX(50%)
+    -webkit-animation: spin-back 3s linear infinite;
+    animation: spin-back 3s linear infinite;
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg) // translateX(50%)
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(360deg) // translateX(50%)
+   }
+}
+
+@keyframes spin-back {
+  0% {
+    transform: translate(-50%, -50%) rotateY(180deg) // translateX(50%)
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(540deg) // translateX(50%)
+   }
+}

@@ -1,0 +1,140 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/utilities";
+@import "base/typography";
+
+@import "components/button";
+@import "components/conference";
+@import "components/input";
+
+@import "layout/card";
+@import "layout/matches";
+@import "layout/playoffs";
+@import "layout/splash";
+
+@import "pages/home";
+
+#section-matches {
+    position: relative;
+}
+
+
+hr {
+    background: linear-gradient(to right, #17408b 0%, #c9082a 100%);
+    height: 2px;
+}
+
+
+
+#btnUpdate {
+    color: #70245B;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #70245B;
+    position: relative;
+}
+#btnUpdate:hover {
+    background-color: #70245B;
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0, .15);
+    transform: translateY(-2px);
+}
+#btnUpdate:active {
+  background-color: #70245B;
+  /* box-shadow: 0 5px #666; */
+  transform: translateY(4px);
+  box-shadow: 0 .5rem 2rem rgba(0,0,0, .15);
+  transform: translateY(0);
+}
+
+.team {
+    border-radius: 10px;
+}
+
+.split {
+    background: white;
+    padding: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.imgSpecial {
+    width: auto;
+    height: 128px;
+    margin: 0;
+}
+
+.imgLarge {
+    max-width: 100%;
+    height:auto;
+}
+
+.textLarge {
+    font-size:1.5em
+}
+
+.textSmall {
+    font-size:0.75em
+}
+
+.mobile, .desktop {
+    margin: auto;
+}
+
+#standingsDiv {
+    width: 75vw;
+    margin: auto;
+}
+
+#west {
+    margin: 0 auto 0 0;
+}
+
+#east {
+    margin: 0 0 0 auto;
+}
+
+@media (max-width: 800px) {
+    body {
+        font-size: 16px;
+    }
+    .textLarge {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1200px) {
+    .desktop {
+        display: none;
+    }
+
+    #standingsDiv {
+        width: 90vw;
+        margin: auto;
+    }
+}
+
+/* #nugget p{
+    font-size: 1em;
+    background: -webkit-linear-gradient(#eee, #333);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+/*
+.match {
+    height: 10em;
+    align-content: center;
+    margin-top: 1em;
+}
+img {
+    width: 64px;
+    height: 64px;
+}
+
+.matchSection {
+    align-content: center;
+} */

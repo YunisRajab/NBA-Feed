@@ -2,71 +2,400 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="icons/nba_logo.png">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="assets/icons/nba_logo.png" />
     <title>NBA Feed</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-    <script type="text/javascript">
-      (function(){
-          emailjs.init("user_3lAMuFzSoLFk2RFOXxG8F");
-      })();
-    </script>
-    <link rel="stylesheet" href="index.css">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <div class="panel">
+      <img
+        src="assets/icons/logo_tall.png"
+        alt="logo_tall"
+        class="panel--front"
+      />
+      <img
+        src="assets/icons/logo_tall.png"
+        alt="logo_tall"
+        class="panel--back"
+      />
+    </div>
 
-
-    <div class="container-fluid my-3">
+    <div class="container-fluid mb-3">
       <div class="row justify-content-center">
-          <div class="col-4" align="center"><button class="btn btn-primary p-3 mt-2" id="btnPrevious">Previous Day</button></div>
-          <div class="col-4" align="center"><button class="btn btn-primary p-3 mt-2" id="btnToday">Today</button></div>
-          <div class="col-4" align="center"><button class="btn btn-primary p-3 mt-2" id="btnNext">Next Day</button></div>
+        <div class="col-4" align="center">
+          <button class="btn btn-primary p-3 mt-2" id="btnPrevious">
+            Previous Day
+          </button>
+        </div>
+        <div class="col-4" align="center">
+          <button class="btn btn-primary p-3 mt-2" id="btnToday">Today</button>
+        </div>
+        <div class="col-4" align="center">
+          <button class="btn btn-primary p-3 mt-2" id="btnNext">
+            Next Day
+          </button>
+        </div>
       </div>
     </div>
-    
-    <div class="col-12 my-3" align="center">
-      <a href="http://nba-streams.xyz/stream/tnt-live-stream/">
-      <img src="icons/TNT.png" style="width: auto; height: 128px;">
-    </a>
-    </div>
-    
 
-    <div class="container my-3">
-      <div class="row mb-2 justify-content-center">
-        <div class="match col-5 m-2">
-          <div class="row flex-grow-1 align-content-center">
-            <div class="matchSection vTeam col-4 text-center">
-              <a href=""><img class="img-responsive center-block"></a>
-              <p>name</p>
-              <p>record</p>
-            </div>
-            <div class="matchSection mid col-4 text-center">
-                <button class="btn btn-primary p-1" id="reminder">Remind me</button>
-                <p style="font-size:24px"></p>
-                <p style="font-size:24px"></p>
-                <p></p>
-            </div>
-            <div class="matchSection hTeam col-4 text-center">
-              <a href=""><img class="img-responsive center-block"></a>
-              <p>name</p>
-              <p>record</p>
-            </div>        
+    <h1>
+      <a href="https://cors-anywhere.herokuapp.com/corsdemo">Request Access</a>
+      then refresh
+    </h1>
+
+    <div class="col-12 my-3" align="center">
+      <a href="#">
+        <img src="assets/icons/nbatv.png" class="imgSpecial" />
+      </a>
+      <a href="#">
+        <img src="assets/icons/TNT.png" class="imgSpecial" />
+      </a>
+      <a href="#">
+        <img src="assets/icons/espn.png" class="imgSpecial" />
+      </a>
+      <p id="date" class="mt-3"></p>
+
+      <!-- <label for="cars">Choose a car:</label> -->
+
+      <select id="selectMode">
+        <option value="day">Day Schedule</option>
+        <option value="team">Team Season</option>
+        <option value="playoffs">Playoffs</option>
+      </select>
+      <select id="selectTeam">
+        <option value="all">All</option>
+      </select>
+      <input type="date" id="inputDate" required="required" />
+      <button id="btnUpdate" class="btn">Update</button>
+    </div>
+    <!-- TODO fix inconsistencies in naming scheme. Use BEM -->
+    <section class="section-playoffs bracket">
+      <div class="bracket__quarter">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
           </div>
         </div>
-        <textarea class="col-10 mt-2" id="console" rows="10" style="background-color: black; color: white;" readonly></textarea>       
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="bracket__semi">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="bracket__conf__final">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bracket__finals">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bracket__conf__final">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="bracket__semi">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="bracket__quarter">
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+        <div class="matchup">
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+          <div class="matchup__row">
+            <img src="" alt="" />
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="section-matches" class="row matchRow col-8 justify-content-center">
+      <div class="match col-10 col-lg-5 m-2 px-0 pt-2">
+        <div
+          class="row flex-grow-1 justify-content-center m-0 pb-1"
+          id="nugget"
+        ></div>
+        <div class="row flex-grow-1 align-content-center pt-0 m-0">
+          <div
+            class="matchSection vTeam col-4 col-lg-3 col-xl-4 text-center py-0 px-3"
+          >
+            <a target="_blank"
+              ><img class="img-responsive center-block imgLarge"
+            /></a>
+            <p>name</p>
+            <p>record <span></span></p>
+          </div>
+          <div class="matchSection mid col-4 col-lg-6 col-xl-4 text-center p-0">
+            <button class="btn btn-primary p-1" id="reminder">Remind me</button>
+            <p class="textLarge"></p>
+            <p class="textLarge"></p>
+            <div class="row justify-content-center">
+              <p class="col-2 mb-1 mr-1 left">OT</p>
+              <p class="col-1 mb-1 quarter left">1</p>
+              <p class="col-1 mb-1 quarter left">2</p>
+              <p class="col-1 mb-1 quarter right">3</p>
+              <p class="col-1 mb-1 quarter right">4</p>
+            </div>
+            <div class="row justify-content-center textSmall">
+              <p class="col-2 mb-1 mr-1 left"></p>
+              <p class="col-1 mb-1 left"></p>
+              <p class="col-1 mb-1 left"></p>
+              <p class="col-1 mb-1 right"></p>
+              <p class="col-1 mb-1 right"></p>
+            </div>
+            <div class="row justify-content-center textSmall">
+              <p class="col-2 mb-0 mr-1 left"></p>
+              <p class="col-1 mb-0 left"></p>
+              <p class="col-1 mb-0 left"></p>
+              <p class="col-1 mb-0 right"></p>
+              <p class="col-1 mb-0 right"></p>
+            </div>
+          </div>
+          <div
+            class="matchSection hTeam col-4 col-lg-3 col-xl-4 text-center py-0 px-3"
+          >
+            <a target="_blank"
+              ><img class="img-responsive center-block imgLarge"
+            /></a>
+            <p>name</p>
+            <p>record <span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="conference conference-west" id="west">
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <hr class="split" />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+      </div>
+
+      <div class="conference conference-east" id="east">
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <hr class="split" />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
+        <img />
       </div>
     </div>
 
+    <!-- TODO 3 views: combined, partial conf separated "staircase", conference separated -->
+    <div class="row justify-content-center" id="standingsDiv">
+      <div class="col-9 my-3 p-0">
+        <div class="row m-0" id="topBar">
+          <div class="col-3">Team</div>
+          <div class="col-1 mobile">W</div>
+          <div class="col-1 mobile">L</div>
+          <div class="col-1 mobile">Pct</div>
+          <div class="col-1 mobile">GB</div>
+          <div class="col-1 desktop">Conf</div>
+          <div class="col-1 desktop">Home</div>
+          <div class="col-1 desktop">Away</div>
+          <div class="col-1 desktop">L10</div>
+          <div class="col-1 desktop">Strk</div>
+        </div>
+        <div class="teamRow m-0">
+          <hr class="row my-2 mx-0 p-0" />
+          <div class="team row m-0 p-2">
+            <div class="col-3 pl-1">
+              <div class="row p-0 m-0">
+                <a target="_blank"><img class="mr-3 my-auto" /></a>
+                <p class="m-0"></p>
+              </div>
+            </div>
+            <div class="col-1 mobile"></div>
+            <div class="col-1 mobile"></div>
+            <div class="col-1 mobile"></div>
+            <div class="col-1 mobile"></div>
+            <div class="col-1 desktop"></div>
+            <div class="col-1 desktop"></div>
+            <div class="col-1 desktop"></div>
+            <div class="col-1 desktop"></div>
+            <div class="col-1 desktop"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+    ></script>
+    <script src="assets/js/variables.js"></script>
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>

@@ -1,0 +1,15 @@
+.match {
+  border-radius: 25px 25px 25px 25px;
+  border: 1px solid white;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
+
+  #nugget {
+    padding: 1rem;
+  }
+}
+
+.match-highlight {
+  border: 2px solid $color-tertiary-inverse;
+  box-shadow: 0 0.5rem 2rem rgba($color-tertiary-inverse, 0.5);
+  transform: scale(1.01) translateY(-1%);
+}
